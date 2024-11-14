@@ -31,6 +31,7 @@ package org.firstinspires.ftc.teamcode;
 
 import static java.lang.Thread.sleep;
 
+import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -70,8 +71,8 @@ public class Hardware11241{
     public Servo    intakeL           = null;
     public Servo    intakeR           = null;
     public Servo    drop              = null;
-    public TouchSensor sensor_touch = null;
-
+    public TouchSensor sensor_touch   = null;
+    public SparkFunOTOS myOtos        = null;
     public static final double MID_SERVO       =  0.50 ;
 
     /* local OpMode members. */
@@ -95,6 +96,7 @@ public class Hardware11241{
         rightRearDrive  = hwMap.get(DcMotor.class, "rightRearDrive");
         liftMotor = hwMap.get(DcMotor.class, "liftMotor");
         hangMotor = hwMap.get(DcMotor.class, "hangMotor");
+        myOtos = hwMap.get(SparkFunOTOS.class, "myOtos");
 
         leftFrontDrive.setDirection(DcMotor.Direction.FORWARD);  // Set to FORWARD FOR goBILDA motors
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD); //// Set to "" goBILDA motors
