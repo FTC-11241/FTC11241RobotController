@@ -112,7 +112,7 @@ public class BlueSteelTeleOpNovice extends LinearOpMode {
                 rightRearPower = Range.clip(driveForward - driveSideways - turn, -0.5, 0.5);
             }
             */
-            // D pad controls liftArm.
+            // D-pad(Up/Down) controls liftArm.
             if (gamepad1.dpad_up) {
                 robot.liftMotor.setPower(-1);
             }
@@ -120,7 +120,14 @@ public class BlueSteelTeleOpNovice extends LinearOpMode {
                 robot.liftMotor.setPower(1);
             else
                 robot.liftMotor.setPower(0);
-
+            // D-pad(Left/Right) controls hangMotor.
+            if (gamepad1.dpad_left) {
+                robot.hangMotor.setPower(-1);
+            }
+            if (gamepad1.dpad_right)
+                robot.hangMotor.setPower(1);
+            else
+                robot.hangMotor.setPower(0);
             // right bumper controls intakeR and intakeL
             if (gamepad1.right_bumper) {
                 robot.intakeR.setPosition(0.70);
@@ -176,6 +183,7 @@ public class BlueSteelTeleOpNovice extends LinearOpMode {
             telemetry.addLine("Press Y (triangle) on Gamepad to reset tracking");
             telemetry.addLine("Press X (square) on Gamepad to calibrate the IMU");
             telemetry.addLine();
+
 
             // Log the position to the telemetry
             telemetry.addData("X coordinate", pos.x);
